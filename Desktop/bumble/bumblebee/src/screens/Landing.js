@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { Dimensions, Text, Alert } from "react-native";
+import { Dimensions } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
+const Height = Dimensions.get("window").height;
 const Container = styled.SafeAreaView`
   background-color: #f1f2f6;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  height: ${Height}px;
 `;
 
 const LogoContainer = styled.SafeAreaView`
@@ -89,32 +91,34 @@ const Landing = ({ navigation }) => {
   };
 
   return (
-    <Container>
-      <LogoContainer>
-        <StyledIcon source={require("../../assets/logo.png")} />
-      </LogoContainer>
-      <StyledText>ID</StyledText>
-      <StyledInput
-        type="text"
-        placeholder="아이디"
-        onChangeText={handleEmailInput}
-      ></StyledInput>
-      <StyledText>Password</StyledText>
-      <StyledInput
-        secureTextEntry={true}
-        type="password"
-        placeholder="비밀번호"
-        onChangeText={handlePwInput}
-      />
+    <KeyboardAwareScrollView>
+      <Container>
+        <LogoContainer>
+          <StyledIcon source={require("../../assets/logo.png")} />
+        </LogoContainer>
+        <StyledText>ID</StyledText>
+        <StyledInput
+          type="text"
+          placeholder="아이디"
+          onChangeText={handleEmailInput}
+        ></StyledInput>
+        <StyledText>Password</StyledText>
+        <StyledInput
+          secureTextEntry={true}
+          type="password"
+          placeholder="비밀번호"
+          onChangeText={handlePwInput}
+        />
 
-      <StyledButton>
-        <ButtonText>로그인</ButtonText>
-      </StyledButton>
-      <CenterText>회원가입</CenterText>
+        <StyledButton>
+          <ButtonText>로그인</ButtonText>
+        </StyledButton>
+        <CenterText>회원가입</CenterText>
 
-      <Easyloginbtn source={require("../../assets/easy-login.png")} />
-      <Kakaobtn source={require("../../assets/kakao-btn.png")} />
-    </Container>
+        <Easyloginbtn source={require("../../assets/easy-login.png")} />
+        <Kakaobtn source={require("../../assets/kakao-btn.png")} />
+      </Container>
+    </KeyboardAwareScrollView>
   );
 };
 
