@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const Main = () => {
+const Main = ({ navigation }) => {
   return (
     <View>
       <Text>hi</Text>

@@ -78,9 +78,7 @@ const Kakaobtn = styled.Image`
 
 const Landing = ({ navigation }) => {
   const [emailInput, setEmailInput] = useState("");
-  const [phoneInput, setPhoneInput] = useState("");
   const [pwInput, setPwInput] = useState("");
-  const [confirmPwInput, setConfirmPwInput] = useState("");
 
   const handleEmailInput = (e) => {
     setEmailInput(e);
@@ -110,7 +108,7 @@ const Landing = ({ navigation }) => {
           onChangeText={handlePwInput}
         />
 
-        <StyledButton>
+        <StyledButton onPress={() => navigation.navigate("Main")}>
           <ButtonText>로그인</ButtonText>
         </StyledButton>
         <CenterText>회원가입</CenterText>
